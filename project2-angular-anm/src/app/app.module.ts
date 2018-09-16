@@ -6,12 +6,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    MyProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
