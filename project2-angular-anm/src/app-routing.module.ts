@@ -1,3 +1,4 @@
+import { SpotifyAuthComponent } from './app/components/spotify-auth/spotify-auth.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, Router } from '@angular/router';
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'edit', component: MyProfileComponent },
-  { path: 'spotifytest', component: SpotifyServiceTestComponent}
+  { path: 'spotifytest', component: SpotifyServiceTestComponent},
+  { path: 'spotifyAuth', component: SpotifyAuthComponent}
 ];
 
 @NgModule({

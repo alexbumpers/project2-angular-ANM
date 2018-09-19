@@ -13,8 +13,11 @@ export class SpotifyServiceTestComponent implements OnInit {
   ngOnInit() {
   }
 
-  // getAuth(){
-  //   console.log(this.spotifyService.login());
-  // }
+  getAuth(){
+    var test = this.spotifyService.requestAuth().subscribe({
+      next(something) {console.log(something);}
+    });
+    
+  }
 
 }

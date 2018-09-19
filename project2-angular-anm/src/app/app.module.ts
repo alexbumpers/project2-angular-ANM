@@ -10,6 +10,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SpotifyServiceTestComponent } from './components/spotify-service-test/spotify-service-test.component';
+import { SpotifyAuthComponent } from './components/spotify-auth/spotify-auth.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SpotifyServiceTestComponent } from './components/spotify-service-test/s
     LoginComponent,
     MyProfileComponent,
     NavbarComponent,
-    SpotifyServiceTestComponent
+    SpotifyServiceTestComponent,
+    SpotifyAuthComponent
   ],
   imports: [
     BrowserModule,
