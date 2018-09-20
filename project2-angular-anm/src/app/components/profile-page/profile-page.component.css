@@ -3,6 +3,18 @@
     color: rgb(136, 153, 166);
 }
 
+hr{
+    border-style: solid;
+    background-color: rgb(20, 29, 38);
+    color: rgb(20, 29, 38);
+    height: 3px;
+    width: 100%;
+}
+
+figcaption{
+    color: white;
+}
+
 #header{
     height: 200px;
     background-color: rgb(20, 29, 38);
@@ -17,15 +29,17 @@
     justify-content: space-around;
     flex-direction: row;
     border-style: none;
+    width: 100%;
 }
 
 #left-col, #right-col, #center-col{
     text-align: center;
+    border-style: none;
 }
 
 #left-col{
     width: 25rem;
-    overflow: auto;
+    overflow: visible;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -34,16 +48,14 @@
 
 #prof-pic{
     border-radius: 20%;
-    width: 100%;
-    height: 100%;
+    width: 11rem;
+    height: 11rem;
 }
 
 #prof-username{
     font-size: 18px;
     color: white;
-    text-align: left;
-    border-color: red;
-    
+    text-align: left;    
 }
 
 #right-col{
@@ -59,11 +71,11 @@
     border-color: rgb(10, 10, 10);
     border-width: 1px;
     background-color: rgb(27, 40, 54);
-    margin: 10px 10px 0px 5px;
+    margin: 10px 10px 0px 0px;
 }
 
 #post-timeline{
-    border-style: solid;
+    border-color: rgb(10, 10, 10);
     margin-top: 10px;
     text-align: left;
     display: flex;
@@ -71,9 +83,26 @@
 }
 
 #post-prof-pic{
-    height: 30%;
-    width: 30%;
+    height: 4rem;
+    width: 4rem;
     border-radius: 50%;
+    margin: 5px 5px 5px 5px;
 }
 
+#post-text{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 80%;
+}
 
+#post-buttons-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+#post-buttons{
+    color: white;
+    width: 40px;
+    text-align: center;
+}
