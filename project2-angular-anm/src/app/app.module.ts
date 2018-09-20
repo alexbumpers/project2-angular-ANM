@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisterComponent,
     LoginComponent,
     MyProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
