@@ -1,8 +1,9 @@
 <br>
 <div class="container text-center" id="editProfileContainer">
 <h2 id="editProfileHeader"> Edit Profile </h2>
-<form [formGroup]="editProfileForm">
+<form [formGroup]="editProfileForm" action="profile">
   <div class="form-group text-center">
+      <img *ngIf="url" width=300 height=300 src="{{url}}" />
     <label id="fileLabel" for="avatar">
     <input type="file"
             id="avatar" name="avatar"
@@ -63,6 +64,10 @@
     <div>
       <!-- <div>Last name is required</div> -->
     </div>
+  </div>
+  <div class="form-group text-left">
+    <label for="aboutMe">About me</label>
+    <textarea class="form-control" id="aboutMe" rows="2"></textarea>
   </div>
   <app-search></app-search>
   <input class="btn btn-primary" type="submit" value="Save changes">
