@@ -8,6 +8,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchComponent } from './components/search/search.component';
+import { HttpModule } from '@angular/http';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 @NgModule({
@@ -17,13 +19,15 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     LoginComponent,
     MyProfileComponent,
     NavbarComponent,
+    SearchComponent,
     ProfilePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
