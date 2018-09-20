@@ -10,6 +10,7 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { HttpModule } from '@angular/http';
+import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpModule } from '@angular/http';
     LoginComponent,
     MyProfileComponent,
     NavbarComponent,
-    SearchComponent
+    SearchComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
