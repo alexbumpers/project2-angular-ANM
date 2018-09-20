@@ -32,11 +32,12 @@ figcaption{
     width: 100%;
 }
 
-#left-col, #right-col, #center-col{
+#left-col, #center-col, #right-col{
     text-align: center;
     border-style: none;
 }
 
+/* LEFT COLUMN */
 #left-col{
     width: 25rem;
     overflow: visible;
@@ -58,15 +59,7 @@ figcaption{
     text-align: left;    
 }
 
-#right-col{
-    width: 30rem;
-    overflow: auto;
-    border-color: rgb(10, 10, 10);
-    border-width: 1px;
-    background-color: rgb(27, 40, 54);
-    margin-top: 10px;
-}
-
+/* CENTER COLUMN */
 #center-col{
     border-color: rgb(10, 10, 10);
     border-width: 1px;
@@ -105,4 +98,14 @@ figcaption{
     color: white;
     width: 40px;
     text-align: center;
+}
+
+/* RIGHT COLUMN */
+#right-col{
+    width: 30rem;
+    overflow: auto;
+    border-color: rgb(10, 10, 10);
+    border-width: 1px;
+    background-color: rgb(27, 40, 54);
+    margin-top: 10px;
 }
