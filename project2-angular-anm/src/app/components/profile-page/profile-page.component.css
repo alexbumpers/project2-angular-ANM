@@ -1,5 +1,4 @@
 *{
-    /* border-style: solid; */
     color: rgb(136, 153, 166);
 }
 
@@ -11,7 +10,7 @@ hr{
     width: 100%;
 }
 
-figcaption{
+figcaption, #friend-name, #prof-username{
     color: white;
 }
 
@@ -35,6 +34,7 @@ figcaption{
 #left-col, #center-col, #right-col{
     text-align: center;
     border-style: none;
+    border-radius: 5px;
 }
 
 /* LEFT COLUMN */
@@ -43,8 +43,10 @@ figcaption{
     overflow: visible;
     display: flex;
     justify-content: flex-start;
+    align-items: flex-end;
     flex-direction: column;
     margin-top: 10px;
+    
 }
 
 #prof-pic{
@@ -57,6 +59,8 @@ figcaption{
     font-size: 18px;
     color: white;
     text-align: left;    
+    width: 11rem;
+    word-wrap: break-word;
 }
 
 /* CENTER COLUMN */
@@ -69,10 +73,14 @@ figcaption{
 
 #post-timeline{
     border-color: rgb(10, 10, 10);
-    margin-top: 10px;
     text-align: left;
     display: flex;
-    
+    flex-direction: column;
+}
+
+#post-unit{
+    margin-top: 10px;
+    display: flex;
 }
 
 #post-prof-pic{
@@ -80,6 +88,11 @@ figcaption{
     width: 4rem;
     border-radius: 50%;
     margin: 5px 5px 5px 5px;
+}
+
+#post-handle{
+    width: 4rem;
+    overflow: hidden;
 }
 
 #post-text{
@@ -102,10 +115,27 @@ figcaption{
 
 /* RIGHT COLUMN */
 #right-col{
-    width: 30rem;
+    width: 20rem;
     overflow: auto;
     border-color: rgb(10, 10, 10);
     border-width: 1px;
     background-color: rgb(27, 40, 54);
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#friend-prof-pic{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    margin: 5px 5px 5px 5px;
+}
+
+#friend-unit{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
