@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-user-live-search',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLiveSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
+    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(33, 33, 33)";
   }
 
 }
