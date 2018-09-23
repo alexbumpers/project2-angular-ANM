@@ -41,8 +41,10 @@ export class ProfilePageComponent implements OnInit {
   // Too many would make the page very long
   friends = [
     new Friend('averyveryveryverylongname',
-    'https://puu.sh/Byfzz/f8a7cf7872.png'),
+    'https://puu.sh/Byfzz/f8a7cf7872.png',
+    []),
     new Friend('username',
-    'https://puu.sh/ByfAV/5c82db1289.png')
+    'https://puu.sh/ByfAV/5c82db1289.png',
+    [])
   ]
 }

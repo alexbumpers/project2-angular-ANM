@@ -11,6 +11,21 @@
     </form>
   </div>
   <div id="search-results">
-
+    <div id="search-results-list">
+      <div id="search-result-unit" *ngFor="let friend of friends">
+        <!-- PROFILE PIC -->
+        <a id="search-prof-pic-link" href="">
+          <img id="search-prof-pic" src="{{friend.prof_pic}}">
+          <figcaption id="search-handle">{{friend.handle}}</figcaption>
+        </a>
+        <!-- TEXT BODY -->
+        <!-- SHOULD LIST TOP SONGS -->
+        <span id="search-text">{{friend.songs}}</span>
+        <!-- SIDE BUTTONS -->
+        <div id="search-buttons-container">
+          <button class="btn btn-success" id="search-buttons">+</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
