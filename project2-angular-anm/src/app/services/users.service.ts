@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  url:string = 'http:localhost:8084/users';
+  url:string = 'http:localhost:8080/users';
 
   constructor(private http: HttpClient) { }
 
