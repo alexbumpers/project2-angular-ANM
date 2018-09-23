@@ -1,3 +1,21 @@
 #main-nav {
     color: white;
 }
+
+#navBrand {
+    color: white;
+    font-size: 26px;
+}
+
+#navbarFirst {
+    color: white;
+}
+
+#navbarSecond {
+    color: white;
+}
+
+#navInline {
+    color: white;
+    font-size: 26px;
+}

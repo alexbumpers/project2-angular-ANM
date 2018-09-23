@@ -1,8 +1,11 @@
 <br>
 <div class="container text-center" id="registrationContainer">
 <h2 id="registrationHeader"> Create an account </h2>
-<form [formGroup]="registerForm">
-  <div class="form-group text-left">
+<p *ngIf="dataSaved && registerForm.pristine" ngClass="success">
+  User created successfully!
+</p>
+<form [formGroup]="registrationForm" (ngSubmit)="onFormSubmit()">
+  <div class="text-left">
     <label for="firstName">First name</label>
     <input type="text" formControlName="firstName" class="form-control"/>
     <div>
@@ -10,7 +13,7 @@
     </div>
   </div>
 
-  <div class="form-group text-left">
+  <div class="text-left">
     <label for="lastName">Last name</label>
     <input type="text" formControlName="lastName" class="form-control"/>
     <div>
@@ -18,15 +21,15 @@
     </div>
   </div>
 
-  <div class="form-group text-left">
+  <div class= "text-left">
     <label for="lastName">Email</label>
-    <input type="email" formControlName="emailAddress" class="form-control"/>
+    <input type="email" formControlName="email" class="form-control"/>
     <div>
       <!-- <div>Last name is required</div> -->
     </div>
   </div>
 
-  <div class="form-group text-left">
+  <div class="text-left">
     <label for="password">Password</label>
     <input type="password" formControlName="password" class="form-control"/>
     <div>
@@ -34,7 +37,7 @@
     </div>
   </div>
 
-  <div class="form-group text-left">
+  <div class="text-left">
     <label for="phoneNumber">Phone number</label>
     <input type="text" formControlName="phoneNumber" class="form-control"/>
     <div>
@@ -42,21 +45,21 @@
     </div>
   </div>
 
-  <div class="form-group text-left">
+  <!-- <div class="form-group text-left">
     <label for="city">City</label>
     <input type="text" formControlName="city" class="form-control"/>
-    <div>
+    <div> -->
       <!-- <div>Last name is required</div> -->
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
 
-  <div class="form-group text-left">
+  <!-- <div class="form-group text-left">
     <label for="state">State</label>
     <input type="text" formControlName="state" class="form-control"/>
-    <div>
+    <div> -->
       <!-- <div>Last name is required</div> -->
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
 
   <input class="btn btn-primary" type="submit" value="Create account">
 
