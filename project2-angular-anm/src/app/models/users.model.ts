@@ -1,18 +1,18 @@
 export class Users {
-    userId: number;
-    firstname: string;
-    lastname: string;
+    id: number;
+    firstName: string;
+    lastName: string;
     email: string;
-    username: string;
     password: string;
+    phoneNumber: string;
 
     
-constructor(userId: number, firstname: string, lastname: string, email: string, username: string, password: string){
-    this.userId = userId;
-    this.firstname = firstname;
-    this.lastname = lastname;
+constructor(id: number, firstName: string, lastName: string, email: string, password: string, phoneNumber: string){
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
-    this.username = username;
     this.password = password;
+    this.phoneNumber = phoneNumber;
 }
 }

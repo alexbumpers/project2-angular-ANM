@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
 import { UsersComponent } from './components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterService } from './services/register.service';
 
 @NgModule({
   declarations: [
@@ -27,16 +28,17 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
-    ReactiveFormsModule
+
     
 
 
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
