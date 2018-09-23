@@ -11,6 +11,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { HttpModule } from '@angular/http';
 import { ProfilePageComponent } from './components/profile-page/profile-page.component';
+import { UsersComponent } from './components/users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterService } from './services/register.service';
 
 @NgModule({
   declarations: [
@@ -20,16 +23,22 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
     MyProfileComponent,
     NavbarComponent,
     SearchComponent,
-    ProfilePageComponent
+    ProfilePageComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    HttpModule,
     AppRoutingModule,
-    HttpModule
+
+    
+
+
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
