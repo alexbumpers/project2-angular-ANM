@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Users } from 'src/app/models/users.model';
-import { UsersService } from '../../services/users.service';
 import { RegisterService } from 'src/app/services/register.service';
 
 @Component({
@@ -18,9 +15,6 @@ export class RegisterComponent implements OnInit {
   registrationForm: FormGroup;
   allUsers$: Observable<Users[]>;
 
-  // constructor(private formBuilder:FormBuilder, private registerService: RegisterService) {
-  // }
-
   constructor(private formBuilder:FormBuilder, private registerService: RegisterService) {
   }
 
@@ -30,10 +24,9 @@ export class RegisterComponent implements OnInit {
       lastName: ['', [ Validators.required ] ],
       password: ['', [ Validators.required ] ],
       email: ['', [ Validators.required ] ],
-      phoneNumber: ['', [ Validators.required ] ]
+      phoneNumber: ['', [ Validators.required ] ],
+      gender: ['', [ Validators.required ] ]
     })
-
-    // this.saveUser();
   }
 
   onFormSubmit() {
@@ -42,8 +35,7 @@ export class RegisterComponent implements OnInit {
     this.registerService.getAllUsers().subscribe(users => {
       let maxIndex = users.length - 1;
       let maxIndexItem = users[maxIndex];
-      account.id = maxIndexItem.id + 10;
-      //
+      account.id = maxIndexItem.id + 1;
       this.createUser(account);
     });
     this.registrationForm.reset();
@@ -82,76 +74,8 @@ export class RegisterComponent implements OnInit {
   get phoneNumber() {
     return this.registrationForm.get('phoneNumber');
   }
+  get gender() {
+    return this.registrationForm.get('gender');
+  }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// saveUser() {
-
-// }
-
-
-// export class RegisterComponent implements OnInit {
-
-//   registerForm: FormGroup;
-//   loading = false;
-//   submitted = false;
-
-//   constructor(
-//     private formBuilder: FormBuilder
-//   ) {
-
-
-    
-//    }
-
-//   ngOnInit() {
-//     this.registerForm = this.formBuilder.group({
-//       firstName: ['', Validators.required],
-//       lastName: ['', Validators.required],
-//       username: ['', Validators.required],
-//       password: ['', [Validators.required, Validators.minLength(6)]]
-//   });
-//   }
-
-//      // convenience getter for easy access to form fields
-//   get f() {
-//     return this.registerForm.controls;
-//   }
-
-//   onSubmit() {
-//     this.submitted = true;
-
-//     // stop here if form is invalid
-//     if (this.registerForm.invalid) {
-//         return;
-//     }
-
-//     this.loading = true;
-//     // this.registerService.register(this.registerForm.value)
-//     //     .pipe(first())
-//     //     .subscribe(
-//     //         data => {
-//     //             this.alertService.success('Registration successful', true);
-//     //             this.router.navigate(['/login']);
-//     //         },
-//     //         error => {
-//     //             this.alertService.error(error);
-//     //             this.loading = false;
-//     //         });
-// }
-
-
-// }
