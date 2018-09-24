@@ -25,7 +25,9 @@ export class RegisterComponent implements OnInit {
       password: ['', [ Validators.required ] ],
       email: ['', [ Validators.required ] ],
       phoneNumber: ['', [ Validators.required ] ],
-      gender: ['', [ Validators.required ] ]
+      gender: ['', [ Validators.required ] ],
+      orientation: ['', [ Validators.required ] ],
+      aboutMe:  ['', [ Validators.required ] ]
     })
   }
 
@@ -76,6 +78,12 @@ export class RegisterComponent implements OnInit {
   }
   get gender() {
     return this.registrationForm.get('gender');
+  }
+  get orientation() {
+    return this.registrationForm.get('orientation');
+  }
+  get aboutMe() {
+    return this.registrationForm.get('aboutMe');
   }
 
 }

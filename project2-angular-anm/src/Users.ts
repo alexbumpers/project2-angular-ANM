@@ -6,4 +6,6 @@ export class Users {
     email: string;
     phoneNumber: string;
     gender: string;
+    orientation: string;
+    aboutMe: string;
 }
