@@ -8,4 +8,8 @@ export class Users {
     gender: string;
     orientation: string;
     aboutMe: string;
+    location: {
+        city: string;
+        state: string;
+    }
 }

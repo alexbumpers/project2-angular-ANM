@@ -27,7 +27,13 @@ export class RegisterComponent implements OnInit {
       phoneNumber: ['', [ Validators.required ] ],
       gender: ['', [ Validators.required ] ],
       orientation: ['', [ Validators.required ] ],
-      aboutMe:  ['', [ Validators.required ] ]
+      aboutMe:  ['', [ Validators.required ] ],
+      location: this.formBuilder.group({
+        city: ['', [ Validators.required ] ],
+        state: ['', [ Validators.required ] ]
+      })
+
+
     })
   }
 
@@ -85,5 +91,10 @@ export class RegisterComponent implements OnInit {
   get aboutMe() {
     return this.registrationForm.get('aboutMe');
   }
-
+  get city() {
+    return this.registrationForm.get('city');
+  }
+  get state() {
+    return this.registrationForm.get('state');
+  }
 }
