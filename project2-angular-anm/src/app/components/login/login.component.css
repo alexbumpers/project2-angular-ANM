@@ -13,11 +13,11 @@
 }
 
 
-::ng-deep #loginContainer {
+#loginContainer {
     color: white;
 }
 
-::ng-deep #about-text {
+#about-text {
     color: white;
     text-shadow:
     -1px -1px 0 #000,
