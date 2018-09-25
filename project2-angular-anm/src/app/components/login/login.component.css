@@ -34,3 +34,34 @@
 #container {
     margin-top: 100px;
 }
+
+.btn-primary {
+    background-color: #1DB954;
+    border: none;
+    border-radius: 5px;
+    padding-left: 35px;
+    padding-right: 35px;
+    transition: transform .3s ease-out;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+}
+
+#emailInput {
+    transition: transform .3s ease-out;
+}
+#emailInput:hover {
+    transform: translate(5px, -5px)
+}
+
+#passwordInput {
+    transition: transform .3s ease-out;
+}
+#passwordInput:hover {
+    transform: translate(5px, -5px)
+}
+
+#home-subheader-body {
+    font-size: 22px;
+}
