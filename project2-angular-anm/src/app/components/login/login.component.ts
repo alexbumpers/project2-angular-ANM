@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Users } from '../../../Users';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,53 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() {}
+  constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  loginForm = new FormGroup({
+    emailAddress: new FormControl(),
+    password: new FormControl()
+  });
+  
+  user: Users;
+  
+  checkLogin(){
+    let email = this.loginForm.get("emailAddress").value;
+    let password = this.loginForm.get("password").value;
+    var id = -1;
+    // console.log(email);
+    // console.log(password);
+    let promise = new Promise<Users>((resolve) => {
+      resolve(this.userService.getUser(email, password));
+    });
+
+    promise.then((value)=>{
+      this.user = value;
+      // console.log(this.user.password);
+      if(this.user.password === password){
+        id = this.user.id;
+        console.log(id);
+      }
+    });
+
+    if(id != -1){
+      promise = new Promise<Users>((resolve) => {
+        resolve(this.userService.loginValid(id));
+      });
+    }
+
+    promise.then((value)=>{
+      if(value.id == id){
+        console.log("cool");
+        this.router.navigateByUrl("/profile");
+      }
+    })
+
+    // this.userService.getUser(email, password)subscribe((value) =>{
+    //   console.log(value);
+    // });
+
+  }
 }
