@@ -24,6 +24,7 @@ export class ProfilePageComponent implements OnInit {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
     this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
     console.log("login: " + this.sessionId);
+    
   }
 
   passUserSessionToEditProfilePage() {
