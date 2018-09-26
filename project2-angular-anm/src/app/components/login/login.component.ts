@@ -1,14 +1,15 @@
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Users } from '../../models/users.model';
 import { SessionServiceService } from '../../services/session-service.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['login.component.css']
+  styleUrls: ['login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
 
