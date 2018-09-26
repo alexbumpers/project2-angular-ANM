@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     var id = -1;
     // console.log(email);
     // console.log(password);
+
     let promise = new Promise<Users>((resolve) => {
       resolve(this.userService.getUser(email, password));
     });
@@ -36,6 +37,7 @@ export class LoginComponent implements OnInit {
     promise.then((value)=>{
       this.user = value;
       // console.log(this.user.password);
+
       if(this.user.password === password){
         id = this.user.id;
         console.log(id);
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
     // this.userService.getUser(email, password)subscribe((value) =>{
     //   console.log(value);
     // });
+
 
   }
 }
