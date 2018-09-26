@@ -41,9 +41,9 @@ export class RegisterComponent implements OnInit {
     this.dataSaved = false;
     let account = this.registrationForm.value;
     this.registerService.getAllUsers().subscribe(users => {
-      let maxIndex = users.length - 1;
-      let maxIndexItem = users[maxIndex];
-      account.id = maxIndexItem.id + 1;
+      // let maxIndex = users.length - 1;
+      // let maxIndexItem = users[maxIndex];
+      // account.id = maxIndexItem.id + 1;
       this.createUser(account);
     });
     this.registrationForm.reset();
