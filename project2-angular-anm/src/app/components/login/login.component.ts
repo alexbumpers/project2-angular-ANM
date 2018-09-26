@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Users } from '../../../Users';
+import { Users } from '../../models/users.model';
 import { SessionServiceService } from '../../services/session-service.service';
 
 @Component({
