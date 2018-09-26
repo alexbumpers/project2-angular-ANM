@@ -1,4 +1,4 @@
-import { Friends } from './../../models/friend.model';
+import { Friends } from '../../models/friends.model';
 import { FriendsService } from './../../services/friends.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Friend } from './../../models/friend';
@@ -70,7 +70,7 @@ export class ProfilePageComponent implements OnInit {
     // Get friendsList
     this.friendService.getFriendsByPerson(this.sessionId).subscribe((allFriends)=>{
       this.friendsModel = allFriends;
-      console.log("friends: " + this.friendsModel);
+      // console.log("friends: " + this.friendsModel);
       // Retrieve data for each friend
       this.friendsModel.forEach(element => {
         // Get friend's data through userService
@@ -96,6 +96,7 @@ export class ProfilePageComponent implements OnInit {
     });
     // Populate page with current User's data
     this.promise.then((value)=>{
+      console.log(value);
       this.currUser = value;
       this.username = this.currUser.firstName + " " + this.currUser.lastName;
     });
