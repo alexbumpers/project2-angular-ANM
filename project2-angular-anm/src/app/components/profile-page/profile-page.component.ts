@@ -73,6 +73,7 @@ export class ProfilePageComponent implements OnInit {
       console.log("friends: " + this.friendsModel);
       // Retrieve data for each friend
       this.friendsModel.forEach(element => {
+        // Get friend's data through userService
         this.promise = new Promise<Users>((resolve)=>{
           resolve(this.userService.getUserById(''+element.isFriendsWith));
         });
@@ -83,7 +84,9 @@ export class ProfilePageComponent implements OnInit {
               'https://puu.sh/Byfzz/f8a7cf7872.png',
               [])
           );
-        })
+        });
+
+
       });
     });
 
