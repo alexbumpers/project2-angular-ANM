@@ -14,6 +14,7 @@ import { ProfilePageComponent } from './components/profile-page/profile-page.com
 import { UsersComponent } from './components/users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterService } from './services/register.service';
+import { UserLiveSearchComponent } from './components/user-live-search/user-live-search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RegisterService } from './services/register.service';
     NavbarComponent,
     SearchComponent,
     ProfilePageComponent,
-    UsersComponent
+    UsersComponent,
+    UserLiveSearchComponent
   ],
   imports: [
     BrowserModule,

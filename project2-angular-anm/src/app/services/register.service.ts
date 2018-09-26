@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Users } from '../models/users.model';
 import { Observable } from 'rxjs';
-// import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RegisterService {

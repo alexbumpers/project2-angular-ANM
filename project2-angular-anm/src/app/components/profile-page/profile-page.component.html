@@ -7,17 +7,46 @@
 </div>
 
 <div class="container" id="base">
+  <!-- LEFT COLUMN -->
+  <!-- Profile Picture makes get request to /edit -->
   <div class="container" id="left-col">
-    <img id="prof-pic" src="https://pbs.twimg.com/profile_images/826914296093241344/jswv7reL_400x400.jpg">
-    <p id="prof-username">User Name</p>
+    <a href="/edit">
+      <img id="prof-pic" src="{{user_pic}}">
+    </a>
+    <p id="prof-username">{{username}}</p>
   </div>
+
+  <!-- CENTER COLUMN -->
+  <!-- Profile picture should be linked to that user's profile -->
   <div class="container" id="center-col">
-    <div id="post-timeline">
-      <img id="post-prof-pic" src="https://pbs.twimg.com/profile_images/826914296093241344/jswv7reL_400x400.jpg">
-      <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque diam sed accumsan ultricies. Etiam tellus velit, malesuada sed gravida in, accumsan at urna.</span>
+    <div id="post-timeline" *ngFor="let post of posts">
+      <div id="post-unit">
+        <!-- PROFILE PIC -->
+        <a id="post-prof-pic-link" href="">
+          <img id="post-prof-pic" src="{{post.prof_pic}}">
+          <figcaption id="post-handle">{{post.handle}}</figcaption>
+        </a>
+        <!-- TEXT BODY -->
+        <span id="post-text">{{post.text}}</span>
+        <!-- SIDE BUTTONS -->
+        <div id="post-buttons-container">
+          <button class="btn btn-success" id="post-buttons">✓</button>
+          <button class="btn btn-danger" id="post-buttons">X</button>
+        </div>
+      </div>
+      <hr>
     </div>
   </div>
+  
+  <!-- RIGHT COLUMN -->
+  <!-- Whole element links to that user's profile -->
   <div class="container" id="right-col">
-    test3
+    <div id="friends-list" *ngFor="let friend of friends">
+      <!--  -->
+      <a id="friend-unit" href="">
+        <img id="friend-prof-pic" src={{friend.prof_pic}}>
+        <span id="friend-name">{{friend.handle}}</span>
+      </a>
+    </div>
   </div>
 </div>
