@@ -3,6 +3,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 
 import { SessionServiceService } from '../../services/session-service.service';
 import { Post } from '../../models/post';
+import { NavbarService } from 'src/app/services/navbar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -12,14 +14,21 @@ import { Post } from '../../models/post';
 export class ProfilePageComponent implements OnInit {
 
   constructor(private elementRef: ElementRef,
-    private sessionService: SessionServiceService) { }
+    private sessionService: SessionServiceService, public nav: NavbarService, private router: Router) { }
 
   sessionId:string;
+  
 
   ngOnInit() {
+    this.nav.show();
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
     this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
     console.log("login: " + this.sessionId);
+  }
+
+  passUserSessionToEditProfilePage() {
+    this.sessionService.changeMessage;
+    this.router.navigateByUrl("/edit");
   }
 
   // Left column data
