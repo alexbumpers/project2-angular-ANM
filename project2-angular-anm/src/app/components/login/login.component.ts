@@ -3,6 +3,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../../../Users';
+import { SessionServiceService } from '../../services/session-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,9 @@ import { Users } from '../../../Users';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService: UsersService, private router: Router) { }
+  constructor(private userService: UsersService,
+     private router: Router,
+     private sessionService: SessionServiceService) { }
 
   ngOnInit() {
   }
@@ -26,7 +29,7 @@ export class LoginComponent implements OnInit {
   checkLogin(){
     let email = this.loginForm.get("emailAddress").value;
     let password = this.loginForm.get("password").value;
-    var id = -1;
+    var id = null;
     // console.log(email);
     // console.log(password);
 
@@ -40,22 +43,26 @@ export class LoginComponent implements OnInit {
 
       if(this.user.password === password){
         id = this.user.id;
-        console.log(id);
+      }
+      if(id != null){
+        this.sessionService.changeMessage(id);
+        this.router.navigateByUrl("/profile");
       }
     });
 
-    if(id != -1){
-      promise = new Promise<Users>((resolve) => {
-        resolve(this.userService.loginValid(id));
-      });
-    }
+    
+    // if(id != -1){
+    //   promise = new Promise<Users>((resolve) => {
+    //     resolve(this.userService.loginValid(id));
+    //   });
+    // }
 
-    promise.then((value)=>{
-      if(value.id == id){
-        console.log("cool");
-        this.router.navigateByUrl("/profile");
-      }
-    })
+    // promise.then((value)=>{
+    //   if(value.id == id){
+    //     console.log("cool");
+    //     this.router.navigateByUrl("/profile");
+    //   }
+    // })
 
     // this.userService.getUser(email, password)subscribe((value) =>{
     //   console.log(value);
