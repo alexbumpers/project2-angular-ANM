@@ -16,7 +16,7 @@ export class SpotifyService {
     // let headers = new Headers();
 
     const headerDict = {
-      'Authorization': 'Bearer BQAOcbwY3ZPgHGnPoJdf5Xri61yTonabSDxr-59xYEFrbNK6BGvemk8EKwVJV7UB0gcGsEcQhZSK8DVXBG0'
+      'Authorization': 'Bearer BQApiT4C30Q19tzuZUUABl8bAxqFPvklpFnxpfm1PhFKcCGvrpA4NkeSd1edrWsokeR6DM7WDYuCWZDIuvQ'
     }
 
     const requestOptions = {                                                                                                                                                                                 
@@ -24,7 +24,7 @@ export class SpotifyService {
     };
     
     // let options = new RequestOptions({ headers: headers });
-    this.searchUrl = 'https://api.spotify.com/v1/search?query='+ str + '&offset=0&limit=20&type='+type+'&market=US';
+    this.searchUrl = 'https://api.spotify.com/v1/search?query='+ str + '&offset=0&limit=6&type='+type+'&market=US';
     return this._http.get(this.searchUrl, requestOptions).pipe(map((res) => res.json()));
   }
 }

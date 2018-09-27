@@ -28,4 +28,15 @@ export class RegisterService {
   getAllUsers(): Observable<Users[]> {
     return this.http.get<Users[]>(this.url);
   }
+
+  // putUser(user: Users): Observable<HttpResponse<Users>> {
+  //   let httpHeaders = new HttpHeaders({
+  //     'Content-Type': 'application/json'
+  //   });
+
+  //   return this.http.put<Users>(this.url, user, {
+  //     headers: httpHeaders,
+  //     observe: 'response'
+  //   }
+  // }
 }
