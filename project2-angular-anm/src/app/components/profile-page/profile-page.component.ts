@@ -50,7 +50,7 @@ export class ProfilePageComponent implements OnInit {
 
   ngOnInit() {
     console.log("profile-page OnInit");
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
+    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
     // Get sessionId
     // this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
     console.log("login: " + this.sessionId);
