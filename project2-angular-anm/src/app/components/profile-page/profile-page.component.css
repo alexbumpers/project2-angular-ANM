@@ -99,6 +99,7 @@ figcaption, #friend-name, #prof-username{
     margin-left: 5px;
     margin-right: 5px;
     width: 80%;
+    text-align: center;
 }
 
 #post-buttons-container{

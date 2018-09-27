@@ -1,3 +1,4 @@
+import { GenrePreferenceService } from './../../services/genre-preference.service';
 import { Friends } from '../../models/friends.model';
 import { FriendsService } from './../../services/friends.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -8,6 +9,7 @@ import { SessionServiceService } from '../../services/session-service.service';
 import { Post } from '../../models/post';
 import { Users } from 'src/app/models/users.model';
 import { resolve } from 'q';
+import { Preference } from '../../models/genre-preference.model';
 
 @Component({
   selector: 'app-profile-page',
@@ -19,45 +21,41 @@ export class ProfilePageComponent implements OnInit {
   constructor(private elementRef: ElementRef,
     private sessionService: SessionServiceService,
     private userService: UsersService,
-    private friendService: FriendsService) { }
+    private friendService: FriendsService,
+    private genrePreferenceService: GenrePreferenceService) { }
 
   sessionId: string;
   promise: Promise<Users>;
   currUser: Users;
   friendsModel: Friends[];
+  preferencesModel: Preference[];
 
   // Left column data
   // Can include more profile data is desired
-  user_pic = 'https://pbs.twimg.com/profile_images/826914296093241344/jswv7reL_400x400.jpg';
-  username: string;
+  // Stored in currUser now
+  // user_pic = 'https://pbs.twimg.com/profile_images/826914296093241344/jswv7reL_400x400.jpg';
+  // username: string;
 
   // Center column data
   // Maybe populate w/ more as we scroll down
-  posts = new Array(
-    new Post('averyveryveryverylongname',
-      'https://puu.sh/Byfzz/f8a7cf7872.png', 
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque diam sed accumsan ultricies. Etiam tellus velit, malesuada sed gravida in, accumsan at urna.'),
-      new Post('username',
-      'https://puu.sh/ByfAV/5c82db1289.png', 
-      `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque diam sed accumsan ultricies. 
-      Etiam tellus velit, malesuada sed gravida in, accumsan at urna. Vivamus ultrices pellentesque mattis. In euismod iaculis metus, 
-      nec gravida neque elementum in. Nam vitae libero arcu. Nullam nec interdum justo`),
-      new Post('username',
-      'https://puu.sh/ByfAV/5c82db1289.png', 
-      `cat`)
-  );
+  // posts = new Array(
+  //   new Post('averyveryveryverylongname',
+  //     'https://puu.sh/Byfzz/f8a7cf7872.png', 
+  //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque diam sed accumsan ultricies. Etiam tellus velit, malesuada sed gravida in, accumsan at urna.'),
+  //     new Post('username',
+  //     'https://puu.sh/ByfAV/5c82db1289.png', 
+  //     `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris pellentesque diam sed accumsan ultricies. 
+  //     Etiam tellus velit, malesuada sed gravida in, accumsan at urna. Vivamus ultrices pellentesque mattis. In euismod iaculis metus, 
+  //     nec gravida neque elementum in. Nam vitae libero arcu. Nullam nec interdum justo`),
+  //     new Post('username',
+  //     'https://puu.sh/ByfAV/5c82db1289.png', 
+  //     `cat`)
+  // );
+  posts: Post[] = new Array();
 
   // Right column data
   // Should only populate up to 5-10 friends
   // Too many would make the page very long
-  // friends = new Array(
-  //   new Friend('averyveryveryverylongname',
-  //   'https://puu.sh/Byfzz/f8a7cf7872.png',
-  //   []),
-  //   new Friend('username',
-  //   'https://puu.sh/ByfAV/5c82db1289.png',
-  //   [])
-  // );
   friends: Friend[] = new Array();
 
   ngOnInit() {
@@ -79,14 +77,33 @@ export class ProfilePageComponent implements OnInit {
         });
         // Process friend data and add to friends array
         this.promise.then((value)=>{
+          console.log("friend: " + value);
           this.friends.push(
             new Friend(value.firstName+' '+value.lastName,
-              'https://puu.sh/Byfzz/f8a7cf7872.png',
-              [])
+              value.pictureUrl,
+              value.prefs)
           );
+          if(value.prefs.length > 0){
+            this.posts.push(
+              new Post(value.firstName+' '+value.lastName,
+                value.pictureUrl,
+                'likes ' + value.prefs[0].genre)
+            );
+          }
+          // Get data for newsfeed based off friends preferences
+          // this.genrePreferenceService.getPreferencesByUserId(value.id).subscribe((friendPreferences)=>{
+          //   this.preferencesModel = friendPreferences;
+          //   friendPreferences.forEach(preference => {
+          //     this.posts.push(
+          //       new Post(value.firstName+' '+value.lastName,
+          //         value.pictureUrl,
+          //         'likes ' + value.prefs[0].genre)
+          //     );
+          //   });
+          // });
         });
 
-
+        
       });
     });
 
@@ -98,7 +115,8 @@ export class ProfilePageComponent implements OnInit {
     this.promise.then((value)=>{
       console.log(value);
       this.currUser = value;
-      this.username = this.currUser.firstName + " " + this.currUser.lastName;
+      // this.username = this.currUser.firstName + " " + this.currUser.lastName;
+      // this.user_pic = value.pictureUrl;
     });
   }
 
