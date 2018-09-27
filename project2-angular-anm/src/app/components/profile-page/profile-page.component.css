@@ -2,6 +2,10 @@
     color: rgb(136, 153, 166);
 }
 
+img{
+    object-fit: cover;
+}
+
 hr{
     border-style: solid;
     background-color: rgb(20, 29, 38);
@@ -39,14 +43,13 @@ figcaption, #friend-name, #prof-username{
 
 /* LEFT COLUMN */
 #left-col{
-    width: 25rem;
+    width: 20rem;
     overflow: visible;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: column;
     margin-top: 10px;
-    
 }
 
 #prof-pic{
@@ -58,7 +61,7 @@ figcaption, #friend-name, #prof-username{
 #prof-username{
     font-size: 18px;
     color: white;
-    text-align: left;    
+    text-align: center;    
     width: 11rem;
     word-wrap: break-word;
 }
@@ -69,6 +72,7 @@ figcaption, #friend-name, #prof-username{
     border-width: 1px;
     background-color: rgb(27, 40, 54);
     margin: 10px 10px 0px 0px;
+    width: 60%;
 }
 
 #post-timeline{
@@ -81,13 +85,14 @@ figcaption, #friend-name, #prof-username{
 #post-unit{
     margin-top: 10px;
     display: flex;
+    justify-content: left;
 }
 
 #post-prof-pic{
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
-    margin: 5px 5px 5px 5px;
+    margin: 0px 5px 5px 5px;
 }
 
 #post-handle{
@@ -95,10 +100,22 @@ figcaption, #friend-name, #prof-username{
     overflow: hidden;
 }
 
-#post-text{
+#post-text-container{
     margin-left: 5px;
     margin-right: 5px;
     width: 80%;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#post-text{
+    color: white;
+}
+
+#post-likes{
 }
 
 #post-buttons-container{
