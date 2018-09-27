@@ -34,5 +34,10 @@ export class NavbarComponent implements OnInit{
     this.router.navigateByUrl("/profile");
   }
 
+  endUserSessionOnLogoutClick() {
+    sessionStorage.clear();
+    this.router.navigateByUrl("/")
+  }
+
 
 }

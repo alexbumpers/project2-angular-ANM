@@ -44,7 +44,7 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.navbarService.show();
     console.log("profile-page OnInit");
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
+    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
     // Get sessionId
     console.log("login: " + this.sessionId);
     console.log("praying: " + JSON.parse(sessionStorage.id));
@@ -94,5 +94,16 @@ export class ProfilePageComponent implements OnInit {
       });
     }
 
+    // ngDoCheck() {
+    //   console.log("profile-page DoCheck");
+    // }
+    this.navbarService.show();
+    this.hidePost();
   }  
+
+  hidePost() {
+    document.getElementById("#post-timeline").addEventListener("click", function() {
+      document.getElementById("#post-buttons").hidden = true;
+    })
+  }
 }

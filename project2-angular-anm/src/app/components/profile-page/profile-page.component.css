@@ -1,6 +1,17 @@
 *{
     color: rgb(136, 153, 166);
 }
+#main-profile {
+    background-color: rgb(20, 29, 38);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    height: 100%;
+    
+}
 
 img{
     object-fit: cover;
@@ -86,14 +97,20 @@ figcaption, #friend-name, #prof-username{
     margin-top: 10px;
     display: flex;
     justify-content: left;
+    transition: all .2s ease-in-out; 
 }
+
+#post-unit:hover { transform: scale(1.03); }
 
 #post-prof-pic{
     height: 4rem;
     width: 4rem;
     border-radius: 50%;
     margin: 0px 5px 5px 5px;
+    transition: all .2s ease-in-out; 
 }
+
+#post-prof-pic:hover { transform: scale(1.15); }
 
 #post-handle{
     width: 4rem;

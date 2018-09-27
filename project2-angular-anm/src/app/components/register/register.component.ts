@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
-      firstName: ['', [ Validators.required ] ],
+      firstName: ['', [ Validators.required,  ] ],
       lastName: ['', [ Validators.required ] ],
       password: ['', [ Validators.required ] ],
       email: ['', [ Validators.required ] ],
@@ -31,7 +31,8 @@ export class RegisterComponent implements OnInit {
       location: this.formBuilder.group({
         city: ['', [ Validators.required ] ],
         state: ['', [ Validators.required ] ]
-      })
+      }),
+      pictureUrl: ['', [ Validators.required ] ]
 
 
     })
@@ -95,6 +96,9 @@ export class RegisterComponent implements OnInit {
     return this.registrationForm.get('city');
   }
   get state() {
+    return this.registrationForm.get('state');
+  }
+  get pictureUrl() {
     return this.registrationForm.get('state');
   }
 }
