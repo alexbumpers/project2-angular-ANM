@@ -28,7 +28,10 @@
           <figcaption id="post-handle">{{post.handle}}</figcaption>
         </a>
         <!-- TEXT BODY -->
-        <span id="post-text">{{post.text}}</span>
+        <div id="post-text-container">
+          <span id="post-text">{{post.text}}</span>
+          <span id="post-likes">{{post.likes}}</span>
+        </div>
         <!-- SIDE BUTTONS -->
         <div id="post-buttons-container">
           <button class="btn btn-success" id="post-buttons">✓</button>

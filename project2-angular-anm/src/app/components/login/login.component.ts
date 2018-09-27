@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
       }
       if(id != null){
         this.sessionService.changeMessage(id);
+        sessionStorage.id = JSON.stringify(id);
         this.router.navigateByUrl("/profile");
       }
     });
