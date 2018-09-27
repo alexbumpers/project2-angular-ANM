@@ -108,5 +108,12 @@ export class ProfilePageComponent implements OnInit {
     //   console.log("profile-page DoCheck");
     // }
     this.nav.show();
+    this.hidePost();
   }  
+
+  hidePost() {
+    document.getElementById("#post-timeline").addEventListener("click", function() {
+      document.getElementById("#post-buttons").hidden = true;
+    })
+  }
 }
