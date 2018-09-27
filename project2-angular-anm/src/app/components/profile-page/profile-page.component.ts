@@ -4,6 +4,7 @@ import { FriendsService } from './../../services/friends.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Friend } from './../../models/friend';
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 import { SessionServiceService } from '../../services/session-service.service';
 import { Post } from '../../models/post';
@@ -22,7 +23,8 @@ export class ProfilePageComponent implements OnInit {
   constructor(private elementRef: ElementRef,
     private userService: UsersService,
     private friendService: FriendsService,
-    private genrePreferenceService: GenrePreferenceService) { }
+    private genrePreferenceService: GenrePreferenceService,
+    public nav: NavbarService) { }
 
   sessionId: string;
   promise: Promise<Users>;
@@ -105,6 +107,6 @@ export class ProfilePageComponent implements OnInit {
     // ngDoCheck() {
     //   console.log("profile-page DoCheck");
     // }
-
+    this.nav.show();
   }  
 }

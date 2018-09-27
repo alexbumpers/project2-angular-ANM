@@ -4,6 +4,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Users } from '../../models/users.model';
 import { SessionServiceService } from '../../services/session-service.service';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UsersService,
      private router: Router,
-     private sessionService: SessionServiceService) { }
+     private sessionService: SessionServiceService,
+     public nav: NavbarService) { }
 
   ngOnInit() {
+    this.nav.hide();
   }
 
   loginForm = new FormGroup({
