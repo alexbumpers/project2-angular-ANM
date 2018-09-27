@@ -7,6 +7,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 
 import { SessionServiceService } from '../../services/session-service.service';
 import { Post } from '../../models/post';
+
 import { Users } from 'src/app/models/users.model';
 import { resolve } from 'q';
 import { Preference } from '../../models/genre-preference.model';
@@ -28,6 +29,7 @@ export class ProfilePageComponent implements OnInit {
   currUser: Users;
   friendsModel: Friends[];
   preferencesModel: Preference[];
+
 
   // Left column data
   // Can include more profile data is desired
