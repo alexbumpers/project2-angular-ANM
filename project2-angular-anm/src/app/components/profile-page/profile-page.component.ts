@@ -4,6 +4,7 @@ import { FriendsService } from './../../services/friends.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Friend } from './../../models/friend';
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { NavbarService } from 'src/app/services/navbar.service';
 
 import { Post } from '../../models/post';
 
@@ -44,7 +45,7 @@ export class ProfilePageComponent implements OnInit {
   ngOnInit() {
     this.navbarService.show();
     console.log("profile-page OnInit");
-    this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
+    // this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = "rgb(20, 29, 38)";
     // Get sessionId
     console.log("login: " + this.sessionId);
     console.log("praying: " + JSON.parse(sessionStorage.id));
@@ -95,4 +96,10 @@ export class ProfilePageComponent implements OnInit {
     }
 
   }  
+
+  hidePost() {
+    document.getElementById("#post-timeline").addEventListener("click", function() {
+      document.getElementById("#post-buttons").hidden = true;
+    })
+  }
 }
