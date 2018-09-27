@@ -3,7 +3,7 @@ import { NavbarService } from 'src/app/services/navbar.service';
 import { SessionServiceService } from '../../services/session-service.service';
 import { Users } from 'src/app/models/users.model';
 import { Observable } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register.service';
 
 
@@ -23,7 +23,8 @@ export class MyProfileComponent implements OnInit {
   sessionId:string;
 
   ngOnInit() {
-    
+    this.sessionId = JSON.parse(sessionStorage.id);
+    console.log(this.sessionId);
     this.nav.show();
     this.editProfileForm = this.formBuilder.group({
       firstName: ['', [ Validators.required ] ],
@@ -34,20 +35,18 @@ export class MyProfileComponent implements OnInit {
       gender: ['', [ Validators.required ] ],
       orientation: ['', [ Validators.required ] ],
       aboutMe:  ['', [ Validators.required ] ],
-    })
+    });
       // location: this.formBuilder.group({
       //   city: ['', [ Validators.required ] ],
       //   state: ['', [ Validators.required ] ]
       // })
-    this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
-    console.log("login: " + this.sessionId);
+    // this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
+    // console.log("login: " + this.sessionId);
   }
 
-  // onChangesSavedSubmit() {
-  //   this.dataSaved = false;
-  //   let formVal = this.editProfileForm.value;
-  //   this.registerService.putUser(formVal);
-  // }
+  onChangesSavedSubmit() {
+    console.log(this.editProfileForm.get("email").value);
+  }
 
 }
 
