@@ -1,3 +1,4 @@
+import { UsersService } from './../../services/users.service';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavbarService } from 'src/app/services/navbar.service';
 import { SessionServiceService } from '../../services/session-service.service';
@@ -5,6 +6,7 @@ import { Users } from 'src/app/models/users.model';
 import { Observable } from 'rxjs';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { RegisterService } from 'src/app/services/register.service';
+import { resolve } from 'url';
 
 
 @Component({
@@ -17,9 +19,12 @@ export class MyProfileComponent implements OnInit {
   dataSaved = false;
   editProfileForm: FormGroup;
   allUsers$: Observable<Users[]>;
+  promise: Promise<Users>;
+  updateUser: Users;
 
-  constructor(public nav: NavbarService, private sessionService: SessionServiceService,
-     private formBuilder: FormBuilder,  private registerService: RegisterService) { }
+  constructor(public nav: NavbarService,
+     private formBuilder: FormBuilder,  
+     private userService: UsersService) { }
   sessionId:string;
 
   ngOnInit() {
@@ -45,7 +50,54 @@ export class MyProfileComponent implements OnInit {
   }
 
   onChangesSavedSubmit() {
-    console.log(this.editProfileForm.get("email").value);
+    // console.log(this.editProfileForm.get("email").value);
+    this.promise = new Promise<Users>((resolve)=>{
+      resolve(this.userService.getUserById(this.sessionId))
+    });
+    this.promise.then((value)=>{
+      this.updateUser = value;
+      console.log(this.updateUser);
+      // Pull values from form into updateUser
+      if(this.editProfileForm.get("firstName").value != ''){
+        console.log("firstName: " + this.editProfileForm.get("firstName").value);
+        this.updateUser.firstName = this.editProfileForm.get("firstName").value;
+        console.log(this.updateUser.firstName);
+      }
+      if(this.editProfileForm.get("lastName").value != ''){
+        console.log("lastName: " + this.editProfileForm.get("lastName").value);
+        this.updateUser.lastName = this.editProfileForm.get("lastName").value;
+        console.log(this.updateUser.lastName);
+      }
+      if(this.editProfileForm.get("email").value != ''){
+        console.log("email: " + this.editProfileForm.get("email").value);
+        this.updateUser.email = this.editProfileForm.get("email").value;
+        console.log(this.updateUser.email);
+      }
+      if(this.editProfileForm.get("password").value != ''){
+        console.log("password changed ");
+        this.updateUser.password = this.editProfileForm.get("password").value;
+      }
+      if(this.editProfileForm.get("phoneNumber").value != ''){
+        console.log("phoneNumber: " + this.editProfileForm.get("phoneNumber").value);
+        this.updateUser.phoneNumber = this.editProfileForm.get("phoneNumber").value;
+        console.log(this.updateUser.phoneNumber);
+      }
+      if(this.editProfileForm.get("gender").value != ''){
+        console.log("gender: " + this.editProfileForm.get("gender").value);
+        this.updateUser.gender = this.editProfileForm.get("gender").value;
+        console.log(this.updateUser.gender);
+      }
+      if(this.editProfileForm.get("aboutMe").value != ''){
+        console.log("aboutMe: " + this.editProfileForm.get("aboutMe").value);
+        this.updateUser.aboutMe = this.editProfileForm.get("aboutMe").value;
+        console.log(this.updateUser.aboutMe);
+      }
+      this.userService.editUser(this.updateUser).subscribe((value)=>{
+        console.log("after edit: ");
+        console.log(value);
+      });
+    });
+    
   }
 
 }
