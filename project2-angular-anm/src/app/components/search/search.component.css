@@ -1,0 +1,11 @@
+#artist-img{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+}
+
+#fake-link {
+    color: rgb(0, 102, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}

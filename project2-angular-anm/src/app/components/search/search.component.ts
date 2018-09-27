@@ -15,12 +15,19 @@ export class SearchComponent{
     searchStr: string;
     searchRes: Artist[];
 
+    selectedArtist: string;
+
     searchMusic() {
       this._spotifyService.searchMusic(this.searchStr)
       .subscribe((res) => {
         this.searchRes =  res.artists.items;
+        console.log(this.searchRes);
+
       })
     }
 
+    selectArtist(event){
+      console.log(event);
+    }
 
 }

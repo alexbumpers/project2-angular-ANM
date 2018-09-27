@@ -16,7 +16,7 @@ export class SpotifyService {
     // let headers = new Headers();
 
     const headerDict = {
-      'Authorization': 'Bearer BQApiT4C30Q19tzuZUUABl8bAxqFPvklpFnxpfm1PhFKcCGvrpA4NkeSd1edrWsokeR6DM7WDYuCWZDIuvQ'
+      'Authorization': 'Bearer BQDRMPMd81hcoGDrrs5MKxwwQN7ciqCAKp-UQcmqIqs1XCdlR9TOEn5MzyrvLVEHns0K1ppkC3Zmy454r0M'
     }
 
     const requestOptions = {                                                                                                                                                                                 
