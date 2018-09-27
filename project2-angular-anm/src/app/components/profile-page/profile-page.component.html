@@ -1,11 +1,13 @@
+<div id="main-profile">
 <div class="container" id="base">
   <!-- LEFT COLUMN -->
   <!-- Profile Picture makes get request to /edit -->
   <div class="container" id="left-col">
     <a href="/edit">
-      <img id="prof-pic" src="{{user_pic}}">
+      <img id="prof-pic" src="{{currUser.pictureUrl}}">
     </a>
-    <p id="prof-username">{{username}}</p>
+    <p id="prof-username">{{currUser.firstName}} {{currUser.lastName}}</p>
+    <p id="prof-aboutMe">{{currUser.aboutMe}}</p>
   </div>
 
   <!-- CENTER COLUMN -->
@@ -19,11 +21,15 @@
           <figcaption id="post-handle">{{post.handle}}</figcaption>
         </a>
         <!-- TEXT BODY -->
-        <span id="post-text">{{post.text}}</span>
+        <div id="post-text-container">
+          <span id="post-text">{{post.text}}</span>
+          <span id="post-likes">{{post.likes}}</span>
+        </div>
         <!-- SIDE BUTTONS -->
         <div id="post-buttons-container">
-          <button class="btn btn-success" id="post-buttons">✓</button>
-          <button class="btn btn-danger" id="post-buttons">X</button>
+          <button class="btn btn-success" id="post-button">✓</button>
+          <br>
+          <button class="btn btn-danger" id="post-buttons" (click)="hidePost()">X</button>
         </div>
       </div>
       <hr>
@@ -41,4 +47,5 @@
       </a>
     </div>
   </div>
+</div>
 </div>

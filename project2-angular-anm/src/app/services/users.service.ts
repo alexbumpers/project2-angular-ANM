@@ -19,6 +19,10 @@ export class UsersService {
     return this.http.get<Users[]>(this.url);
   }
 
+  getUserById(id: string): Promise<Users>{
+    return this.http.get<Users>(this.url+"/"+id).toPromise();
+  }
+
   getUser(userEmail: string, userPassword: string): Promise<Users>{
     return this.http.get<Users>(this.url+"/byemail/"+userEmail).toPromise();
     // let body = {
