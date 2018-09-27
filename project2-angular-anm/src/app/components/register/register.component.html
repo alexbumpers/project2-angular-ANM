@@ -1,3 +1,5 @@
+<div id="registration-main">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <br>
 <div class="container text-center" id="registrationContainer">
   <h2 id="registrationHeader"> Create an account </h2>
@@ -12,7 +14,8 @@
         <!-- <div>First name is required</div> -->
       </div>
     </div>
-
+    
+    <br>
     <div class="text-left">
       <label for="lastName">Last name</label>
       <input type="text" formControlName="lastName" class="form-control" />
@@ -20,6 +23,7 @@
         <!-- <div>Last name is required</div> -->
       </div>
     </div>
+    <br>
 
     <div class="text-left">
       <label for="lastName">Email</label>
@@ -28,6 +32,7 @@
         <!-- <div>Last name is required</div> -->
       </div>
     </div>
+    <br>
 
     <div class="text-left">
       <label for="password">Password</label>
@@ -36,6 +41,7 @@
         <!-- <div>Last name is required</div> -->
       </div>
     </div>
+    <br>
 
     <div class="text-left">
       <label for="phoneNumber">Phone number</label>
@@ -43,6 +49,7 @@
       <div>
       </div>
     </div>
+    <br>
 
     <div class="text-left">
       <label for="gender">Gender</label>
@@ -53,11 +60,13 @@
         <option>Other</option>
       </select>
     </div>
+    <br>
     <div formGroupName="location">
       <div class="text-left">
         <label for="city">City</label>
         <input type="city" formControlName="city" class="form-control" />
       </div>
+      <br>
       <div class="text-left">
         <label for="state">State</label>
         <select formControlName="state" id="state" class="form-control">
@@ -117,6 +126,7 @@
         </select>
       </div>
     </div>
+    <br>
     <div class="text-left">
       <label for="orientation">Orientation</label>
       <select formControlName="orientation" id="orientation" class="form-control">
@@ -126,10 +136,12 @@
         <option>Bisexual</option>
       </select>
     </div>
+    <br>
     <div class="text-left">
       <label for="aboutMe">About me</label>
       <input type="textarea" formControlName="aboutMe" class="form-control" max-length="240" />
     <div>
+    <br>
     <div class="text-left">
       <label for="pictureUrl">Profile picture</label>
       <input type="url" formControlName="pictureUrl" class="form-control" placeholder="https://yourpictureURL.com"/>
@@ -141,4 +153,5 @@
   </form>
   <br>
   <a href="/"><button class="btn btn-outline-danger">Home</button></a>
+</div>
 </div>
