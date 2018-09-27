@@ -4,6 +4,12 @@
    
 }
 
+#submitBtn {
+    background-color: #1db954;
+    outline: none;
+    border-color: #1db954;
+}
+
 #registrationContainer {
     margin-top: 50px;
     padding: 40px;
