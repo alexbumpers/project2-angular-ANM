@@ -35,4 +35,7 @@ export class UsersService {
     return this.http.put<Users>(this.url, user);
   }
   
+  searchUsers(name: string): Observable<Users[]>{
+    return this.http.get<Users[]>(this.url+"/name/"+name);
+  }
 }
