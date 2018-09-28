@@ -50,11 +50,6 @@ export class MyProfileComponent implements OnInit {
   }
 
   onChangesSavedSubmit() {
-      pictureUrl:  ['', [ Validators.required ] ],
-    });
-  }
-
-  onChangesSavedSubmit() {
     this.promise = new Promise<Users>((resolve)=>{
       resolve(this.userService.getUserById(this.sessionId))
     });
