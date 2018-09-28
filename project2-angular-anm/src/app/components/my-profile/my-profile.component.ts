@@ -44,17 +44,11 @@ export class MyProfileComponent implements OnInit {
       gender: ['', [ Validators.required ] ],
       orientation: ['', [ Validators.required ] ],
       aboutMe:  ['', [ Validators.required ] ],
+      pictureUrl:  ['', [ Validators.required ] ],
     });
-      // location: this.formBuilder.group({
-      //   city: ['', [ Validators.required ] ],
-      //   state: ['', [ Validators.required ] ]
-      // })
-    // this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
-    // console.log("login: " + this.sessionId);
   }
 
   onChangesSavedSubmit() {
-    // console.log(this.editProfileForm.get("email").value);
     this.promise = new Promise<Users>((resolve)=>{
       resolve(this.userService.getUserById(this.sessionId))
     });
@@ -91,6 +85,11 @@ export class MyProfileComponent implements OnInit {
         this.updateUser.gender = this.editProfileForm.get("gender").value;
         console.log(this.updateUser.gender);
       }
+      if(this.editProfileForm.get("pictureUrl").value != ''){
+        console.log("pictureUrl: " + this.editProfileForm.get("pictureUrl").value);
+        this.updateUser.pictureUrl = this.editProfileForm.get("pictureUrl").value;
+        console.log(this.updateUser.pictureUrl);
+      }
       if(this.editProfileForm.get("aboutMe").value != ''){
         console.log("aboutMe: " + this.editProfileForm.get("aboutMe").value);
         this.updateUser.aboutMe = this.editProfileForm.get("aboutMe").value;
@@ -105,14 +104,12 @@ export class MyProfileComponent implements OnInit {
         pref.genre = null;
         // console.log(pref);
         this.genrePreferenceService.editPreference(pref).subscribe((value)=>{
-          // console.log(value);
         });
       });
       // Update with new preferences
       var pLevel = 1;
       var newPref: Preference;
       this.selectedGenres = JSON.parse(sessionStorage.genres);
-      // console.log(this.selectedGenres);
       this.selectedGenres.forEach(pref => {
         newPref = new Preference(Number(this.sessionId), pLevel, pref);
         pLevel++;
