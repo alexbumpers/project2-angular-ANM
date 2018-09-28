@@ -25,22 +25,14 @@ export class UsersService {
 
   getUser(userEmail: string, userPassword: string): Promise<Users>{
     return this.http.get<Users>(this.url+"/byemail/"+userEmail).toPromise();
-    // let body = {
-    //   emailAddress: userEmail,
-    //   password: userPassword
-    // }
-    // let user = new Users(null, null, null, userEmail, userPassword,null);
-    // console.log(user);
-    // const httpOptions = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type':  'application/json'
-    //   })
-    // };
-    // return this.http.post<Users>(this.loginUrl, user, httpOptions);
   }
 
   loginValid(id: number): Promise<Users>{
     return this.http.get<Users>(this.url+"/logins/"+id).toPromise();
+  }
+
+  editUser(user: Users): Observable<Users>{
+    return this.http.put<Users>(this.url, user);
   }
   
 }
