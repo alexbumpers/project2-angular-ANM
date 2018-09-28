@@ -14,4 +14,8 @@ export class GenrePreferenceService {
   getPreferencesByUserId(id: number): Observable<Preference[]>{
     return this.http.get<Preference[]>(this.url+"/"+id);
   }
+
+  editPreference(pref: Preference): Observable<Preference>{
+    return this.http.put<Preference>(this.url, pref);
+  }
 }

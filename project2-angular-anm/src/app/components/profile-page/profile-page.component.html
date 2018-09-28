@@ -23,7 +23,7 @@
         <!-- TEXT BODY -->
         <div id="post-text-container">
           <span id="post-text">{{post.text}}</span>
-          <span id="post-likes">{{post.likes}}</span>
+          <span *ngIf="post.likes" id="post-likes">Likes: {{post.likes}}</span>
         </div>
         <!-- SIDE BUTTONS -->
         <div id="post-buttons-container">
