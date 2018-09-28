@@ -19,19 +19,24 @@ export class NavbarComponent implements OnInit{
   sessionId:string;
 
   ngOnInit() {
-    this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
-    console.log("login: " + this.sessionId);
+    this.sessionId = JSON.parse(sessionStorage.id);
+    // this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
+    // console.log("login: " + this.sessionId);
   }
 
   
   passUserSessionToEditProfilePage() {
-    this.sessionService.changeMessage;
+    // this.sessionService.changeMessage;
     this.router.navigateByUrl("/edit");
   }
 
   passUserSessionToProfilePageViaNavbar() {
-    this.sessionService.changeMessage;
+    // this.sessionService.changeMessage;
     this.router.navigateByUrl("/profile");
+  }
+
+  passUserSessionToSearchPage(){
+    this.router.navigateByUrl("/search");
   }
 
   endUserSessionOnLogoutClick() {
