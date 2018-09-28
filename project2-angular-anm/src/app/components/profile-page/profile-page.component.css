@@ -2,7 +2,7 @@
     color: rgb(136, 153, 166);
 }
 #main-profile {
-    background-color: rgb(20, 29, 38);
+    background-color: rgb(18,18,18);
     background-position: center center;
     background-repeat:  no-repeat;
     background-attachment: fixed;
@@ -19,8 +19,8 @@ img{
 
 hr{
     border-style: solid;
-    background-color: rgb(20, 29, 38);
-    color: rgb(20, 29, 38);
+    background-color: rgb(18,18,18);
+    color: rgb(18,18,18);
     height: 3px;
     width: 100%;
 }
@@ -75,15 +75,27 @@ figcaption, #friend-name, #prof-username{
     text-align: center;    
     width: 11rem;
     word-wrap: break-word;
+    padding: 4px;
+}
+
+#prof-aboutMe{
+
 }
 
 /* CENTER COLUMN */
 #center-col{
     border-color: rgb(10, 10, 10);
     border-width: 1px;
-    background-color: rgb(27, 40, 54);
+    background-color: rgb(33,33,33);
     margin: 10px 10px 0px 0px;
     width: 60%;
+}
+
+#center-label{
+    background-color: rgb(83,83,83);
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
 }
 
 #post-timeline{
@@ -154,11 +166,18 @@ figcaption, #friend-name, #prof-username{
     overflow: auto;
     border-color: rgb(10, 10, 10);
     border-width: 1px;
-    background-color: rgb(27, 40, 54);
+    background-color: rgb(33,33,33);
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+#right-label{
+    background-color: rgb(83,83,83);
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
 }
 
 #friend-prof-pic{

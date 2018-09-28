@@ -13,6 +13,7 @@
   <!-- CENTER COLUMN -->
   <!-- Profile picture should be linked to that user's profile -->
   <div class="container" id="center-col">
+    <h4 id="center-label">Activity</h4>
     <div id="post-timeline" *ngFor="let post of posts">
       <div id="post-unit">
         <!-- PROFILE PIC -->
@@ -27,7 +28,7 @@
         </div>
         <!-- SIDE BUTTONS -->
         <div id="post-buttons-container">
-          <button class="btn btn-success" id="post-button">✓</button>
+          <button class="btn btn-success" id="post-buttons">✓</button>
           <br>
           <button class="btn btn-danger" id="post-buttons" (click)="hidePost()">X</button>
         </div>
@@ -39,6 +40,7 @@
   <!-- RIGHT COLUMN -->
   <!-- Whole element links to that user's profile -->
   <div class="container" id="right-col">
+    <h4 id="right-label">Friends</h4>
     <div id="friends-list" *ngFor="let friend of friends">
       <!--  -->
       <a id="friend-unit" href="">

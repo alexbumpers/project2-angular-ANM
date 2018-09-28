@@ -14,4 +14,6 @@ export class FriendsService {
   getFriendsByPerson(id: string): Observable<Friends[]> {
     return this.http.get<Friends[]>(this.url+"/p/"+id);
   }
+
+  // addFriend(friend: Friends):
 }
