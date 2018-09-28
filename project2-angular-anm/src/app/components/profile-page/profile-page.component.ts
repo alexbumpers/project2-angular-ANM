@@ -4,7 +4,6 @@ import { FriendsService } from './../../services/friends.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Friend } from './../../models/friend';
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { NavbarService } from 'src/app/services/navbar.service';
 
 import { Post } from '../../models/post';
 
@@ -74,7 +73,7 @@ export class ProfilePageComponent implements OnInit {
                 new Post(value.firstName+' '+value.lastName,
                   value.pictureUrl,
                   value.aboutMe,
-                  'Likes: ' + value.prefs[0].genre)
+                  value.prefs[0].genre)
               );
             }
           });
@@ -95,11 +94,14 @@ export class ProfilePageComponent implements OnInit {
       });
     }
 
+
+    this.navbarService.show();
+    this.hidePost();
   }  
 
   hidePost() {
-    document.getElementById("#post-timeline").addEventListener("click", function() {
-      document.getElementById("#post-buttons").hidden = true;
+    document.getElementById("post-buttons").addEventListener("click", function() {
+      document.getElementById("post-unit").style.display = 'none';
     })
   }
 }

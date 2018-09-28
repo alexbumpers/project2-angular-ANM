@@ -1,3 +1,6 @@
+
+import { Preference } from './../../models/genre-preference.model';
+import { GenrePreferenceService } from './../../services/genre-preference.service';
 import { UsersService } from './../../services/users.service';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavbarService } from 'src/app/services/navbar.service';
@@ -21,10 +24,12 @@ export class MyProfileComponent implements OnInit {
   allUsers$: Observable<Users[]>;
   promise: Promise<Users>;
   updateUser: Users;
+  selectedGenres: string[];
 
   constructor(public nav: NavbarService,
      private formBuilder: FormBuilder,  
-     private userService: UsersService) { }
+     private userService: UsersService,
+     private genrePreferenceService: GenrePreferenceService) { }
   sessionId:string;
 
   ngOnInit() {
@@ -41,16 +46,15 @@ export class MyProfileComponent implements OnInit {
       orientation: ['', [ Validators.required ] ],
       aboutMe:  ['', [ Validators.required ] ],
     });
-      // location: this.formBuilder.group({
-      //   city: ['', [ Validators.required ] ],
-      //   state: ['', [ Validators.required ] ]
-      // })
-    // this.sessionService.currentMessage.subscribe(message => this.sessionId = message);
-    // console.log("login: " + this.sessionId);
+
   }
 
   onChangesSavedSubmit() {
-    // console.log(this.editProfileForm.get("email").value);
+      pictureUrl:  ['', [ Validators.required ] ],
+    });
+  }
+
+  onChangesSavedSubmit() {
     this.promise = new Promise<Users>((resolve)=>{
       resolve(this.userService.getUserById(this.sessionId))
     });
@@ -87,6 +91,11 @@ export class MyProfileComponent implements OnInit {
         this.updateUser.gender = this.editProfileForm.get("gender").value;
         console.log(this.updateUser.gender);
       }
+      if(this.editProfileForm.get("pictureUrl").value != ''){
+        console.log("pictureUrl: " + this.editProfileForm.get("pictureUrl").value);
+        this.updateUser.pictureUrl = this.editProfileForm.get("pictureUrl").value;
+        console.log(this.updateUser.pictureUrl);
+      }
       if(this.editProfileForm.get("aboutMe").value != ''){
         console.log("aboutMe: " + this.editProfileForm.get("aboutMe").value);
         this.updateUser.aboutMe = this.editProfileForm.get("aboutMe").value;
@@ -95,6 +104,24 @@ export class MyProfileComponent implements OnInit {
       this.userService.editUser(this.updateUser).subscribe((value)=>{
         console.log("after edit: ");
         console.log(value);
+      });
+      // Nullify all existing preferences
+      this.updateUser.prefs.forEach((pref)=>{
+        pref.genre = null;
+        // console.log(pref);
+        this.genrePreferenceService.editPreference(pref).subscribe((value)=>{
+        });
+      });
+      // Update with new preferences
+      var pLevel = 1;
+      var newPref: Preference;
+      this.selectedGenres = JSON.parse(sessionStorage.genres);
+      this.selectedGenres.forEach(pref => {
+        newPref = new Preference(Number(this.sessionId), pLevel, pref);
+        pLevel++;
+        this.genrePreferenceService.editPreference(newPref).subscribe((value)=>{
+          console.log(value);
+        });
       });
     });
     

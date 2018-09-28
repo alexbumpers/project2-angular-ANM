@@ -23,13 +23,13 @@
         <!-- TEXT BODY -->
         <div id="post-text-container">
           <span id="post-text">{{post.text}}</span>
-          <span id="post-likes">{{post.likes}}</span>
+          <span *ngIf="post.likes" id="post-likes">Likes: {{post.likes}}</span>
         </div>
         <!-- SIDE BUTTONS -->
         <div id="post-buttons-container">
-          <button class="btn btn-success" id="post-buttons">✓</button>
+          <button class="btn btn-success" id="post-button">✓</button>
           <br>
-          <button class="btn btn-danger" id="post-buttons1">X</button>
+          <button class="btn btn-danger" id="post-buttons" (click)="hidePost()">X</button>
         </div>
       </div>
       <hr>

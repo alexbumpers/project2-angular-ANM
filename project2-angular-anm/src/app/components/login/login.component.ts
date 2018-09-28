@@ -14,6 +14,8 @@ import { NavbarService } from 'src/app/services/navbar.service';
 })
 export class LoginComponent implements OnInit {
 
+  sessionId: string;
+
   constructor(private userService: UsersService,
      private router: Router,
      private sessionService: SessionServiceService,
@@ -21,6 +23,12 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.nav.hide();
+    if (sessionStorage.id){
+      this.sessionId = JSON.parse(sessionStorage.id);
+      console.log("sessionId login: " + this.sessionId)
+      this.router.navigateByUrl("/profile");
+    }
+    
   }
 
   loginForm = new FormGroup({
