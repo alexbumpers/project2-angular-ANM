@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  url:string = '/users';
-  loginUrl:string = '/logins';
+  url:string = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/users';
+  loginUrl:string = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/logins';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Friends } from '../models/friends.model';
   providedIn: 'root'
 })
 export class FriendsService {
-  url: string = "/friends";
+  url: string = "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/friends";
 
   constructor(private http: HttpClient) { }
 

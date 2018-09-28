@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class RegisterService {
-  url = "/users";
+  url = "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/users";
   constructor(private http: HttpClient) {}
 
   createUser(user: Users): Observable<Users> {

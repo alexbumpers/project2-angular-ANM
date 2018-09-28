@@ -1,18 +1,18 @@
 {
   "/users": {
-    "target": "http://localhost:8080",
+    "target": "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
   },
   "/logins": {
-    "target": "http://localhost:8080",
+    "target": "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
   },
   "/friends": {
-    "target": "http://localhost:8080",
+    "target": "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true

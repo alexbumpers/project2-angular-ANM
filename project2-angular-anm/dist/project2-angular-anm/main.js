@@ -1157,7 +1157,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var FriendsService = /** @class */ (function () {
     function FriendsService(http) {
         this.http = http;
-        this.url = "/friends";
+        this.url = "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/friends";
     }
     FriendsService.prototype.getFriendsByPerson = function (id) {
         return this.http.get(this.url + "/p/" + id);
@@ -1201,7 +1201,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var GenrePreferenceService = /** @class */ (function () {
     function GenrePreferenceService(http) {
         this.http = http;
-        this.url = '/preferences';
+        this.url = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/preferences';
     }
     GenrePreferenceService.prototype.getPreferencesByUserId = function (id) {
         return this.http.get(this.url + "/" + id);
@@ -1292,7 +1292,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var RegisterService = /** @class */ (function () {
     function RegisterService(http) {
         this.http = http;
-        this.url = "/users";
+        this.url = "http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/users";
     }
     RegisterService.prototype.createUser = function (user) {
         var httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
@@ -1448,8 +1448,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var UsersService = /** @class */ (function () {
     function UsersService(http) {
         this.http = http;
-        this.url = '/users';
-        this.loginUrl = '/logins';
+        this.url = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/users';
+        this.loginUrl = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/logins';
     }
     UsersService.prototype.getUsers = function () {
         return this.http.get(this.url);

@@ -7,7 +7,7 @@ import { Preference } from '../models/genre-preference.model';
   providedIn: 'root'
 })
 export class GenrePreferenceService {
-  url: string = '/preferences';
+  url: string = 'http://ec2-54-191-35-75.us-west-2.compute.amazonaws.com:8082/preferences';
 
   constructor(private http: HttpClient) { }
 
