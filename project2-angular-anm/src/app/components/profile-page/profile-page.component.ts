@@ -94,9 +94,7 @@ export class ProfilePageComponent implements OnInit {
       });
     }
 
-    // ngDoCheck() {
-    //   console.log("profile-page DoCheck");
-    // }
+
     this.navbarService.show();
     this.hidePost();
   }  

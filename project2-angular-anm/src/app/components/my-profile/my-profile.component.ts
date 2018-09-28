@@ -1,3 +1,4 @@
+
 import { Preference } from './../../models/genre-preference.model';
 import { GenrePreferenceService } from './../../services/genre-preference.service';
 import { UsersService } from './../../services/users.service';
@@ -44,6 +45,11 @@ export class MyProfileComponent implements OnInit {
       gender: ['', [ Validators.required ] ],
       orientation: ['', [ Validators.required ] ],
       aboutMe:  ['', [ Validators.required ] ],
+    });
+
+  }
+
+  onChangesSavedSubmit() {
       pictureUrl:  ['', [ Validators.required ] ],
     });
   }
