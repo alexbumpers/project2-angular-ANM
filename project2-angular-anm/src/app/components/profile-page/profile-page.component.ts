@@ -102,8 +102,8 @@ export class ProfilePageComponent implements OnInit {
   }  
 
   hidePost() {
-    document.getElementById("#post-timeline").addEventListener("click", function() {
-      document.getElementById("#post-buttons").hidden = true;
+    document.getElementById("post-buttons").addEventListener("click", function() {
+      document.getElementById("post-unit").style.display = 'none';
     })
   }
 }
