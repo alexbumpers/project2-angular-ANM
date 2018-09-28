@@ -115,6 +115,7 @@ figcaption, #friend-name, #prof-username{
 #post-handle{
     width: 4rem;
     overflow: hidden;
+    text-align: center;
 }
 
 #post-text-container{

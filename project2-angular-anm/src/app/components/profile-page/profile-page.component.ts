@@ -73,7 +73,7 @@ export class ProfilePageComponent implements OnInit {
                 new Post(value.firstName+' '+value.lastName,
                   value.pictureUrl,
                   value.aboutMe,
-                  'Likes: ' + value.prefs[0].genre)
+                  value.prefs[0].genre)
               );
             }
           });

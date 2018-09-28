@@ -1,13 +1,10 @@
+import { PrefKey } from './preference-key.model';
 export class Preference {
-    pId: {
-        muser_id:number,
-        pLevel:number
-    };
+    pId: PrefKey;
     genre: string;
 
     constructor(muser_id: number, pLevel:number, genre: string){
-        this.pId.muser_id = muser_id;
-        this.pId.pLevel = pLevel;
+        this.pId = new PrefKey(muser_id, pLevel);
         this.genre = genre;
     }
 }

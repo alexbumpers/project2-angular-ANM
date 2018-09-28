@@ -1,3 +1,5 @@
+import { Preference } from './../../models/genre-preference.model';
+import { GenrePreferenceService } from './../../services/genre-preference.service';
 import { UsersService } from './../../services/users.service';
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavbarService } from 'src/app/services/navbar.service';
@@ -21,10 +23,12 @@ export class MyProfileComponent implements OnInit {
   allUsers$: Observable<Users[]>;
   promise: Promise<Users>;
   updateUser: Users;
+  selectedGenres: string[];
 
   constructor(public nav: NavbarService,
      private formBuilder: FormBuilder,  
-     private userService: UsersService) { }
+     private userService: UsersService,
+     private genrePreferenceService: GenrePreferenceService) { }
   sessionId:string;
 
   ngOnInit() {
@@ -95,6 +99,26 @@ export class MyProfileComponent implements OnInit {
       this.userService.editUser(this.updateUser).subscribe((value)=>{
         console.log("after edit: ");
         console.log(value);
+      });
+      // Nullify all existing preferences
+      this.updateUser.prefs.forEach((pref)=>{
+        pref.genre = null;
+        // console.log(pref);
+        this.genrePreferenceService.editPreference(pref).subscribe((value)=>{
+          // console.log(value);
+        });
+      });
+      // Update with new preferences
+      var pLevel = 1;
+      var newPref: Preference;
+      this.selectedGenres = JSON.parse(sessionStorage.genres);
+      // console.log(this.selectedGenres);
+      this.selectedGenres.forEach(pref => {
+        newPref = new Preference(Number(this.sessionId), pLevel, pref);
+        pLevel++;
+        this.genrePreferenceService.editPreference(newPref).subscribe((value)=>{
+          console.log(value);
+        });
       });
     });
     
